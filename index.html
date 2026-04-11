@@ -11,7 +11,11 @@
 body{background:#020617;color:white;overflow-x:hidden;cursor:none}
 
 /* CURSOR */
-.cursor{width:20px;height:20px;border:2px solid #00e5ff;border-radius:50%;position:fixed;pointer-events:none;z-index:9999}
+.cursor{
+width:20px;height:20px;border:2px solid #00e5ff;
+border-radius:50%;position:fixed;pointer-events:none;z-index:9999;
+transition:0.05s;
+}
 
 /* NAV */
 header{
@@ -22,19 +26,283 @@ background:rgba(0,0,0,0.4);
 backdrop-filter:blur(12px);
 z-index:1000
 }
-nav a{color:white;text-decoration:none;margin:0 15px;position:relative}
-nav a::after{content:"";position:absolute;width:0;height:2px;background:#00e5ff;left:0;bottom:-5px;transition:0.3s}
+
+nav a{
+color:white;text-decoration:none;margin:0 15px;position:relative
+}
+
+nav a::after{
+content:"";position:absolute;width:0;height:2px;background:#00e5ff;
+left:0;bottom:-5px;transition:0.3s
+}
 nav a:hover::after{width:100%}
 
-/* HERO VIDEO */
-.hero{height:100vh;position:relative}
-.hero video{position:absolute;width:100%;height:100%;object-fit:cover}
-.hero .overlay{position:absolute;inset:0;background:rgba(0,0,0,0.6)}
-.hero .content{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
-.hero h2{font-size:80px;animation:fadeUp 1.2s}
-.hero p{font-size:22px;opacity:0.85}
+/* HERO */
+.hero{
+height:100vh;position:relative;overflow:hidden
+}
 
-@keyframes fadeUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
+.hero video{
+position:absolute;width:100%;height:100%;object-fit:cover;
+transform:scale(1.1);
+}
+
+.hero .overlay{
+position:absolute;inset:0;
+background:linear-gradient(to bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.9));
+}
+
+.hero-text{
+position:absolute;top:50%;left:50%;
+transform:translate(-50%,-50%);
+text-align:center;z-index:2
+}
+
+.hero h2{
+font-size:80px;
+letter-spacing:2px;
+animation:fadeUp 1.2s
+}
+
+.hero p{font-size:22px;opacity:0.85;margin-top:10px}
+
+/* SCROLL DOWN ICON */
+.scroll-down{
+position:absolute;bottom:30px;left:50%;
+transform:translateX(-50%);
+font-size:14px;opacity:0.7;
+animation:float 2s infinite;
+}
+
+@keyframes float{
+0%,100%{transform:translate(-50%,0)}
+50%{transform:translate(-50%,10px)}
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translate(-50%,50px)}
+to{opacity:1;transform:translate(-50%,-50%)}
+}
+
+/* SECTION */
+section{padding:100px 40px}
+.container{max-width:1200px;margin:auto}
+
+/* INTRO */
+.intro{
+text-align:center;
+max-width:900px;
+margin:auto;
+line-height:1.8;
+font-size:18px;
+opacity:0.9
+}
+
+/* STATS */
+.stats{
+display:flex;
+justify-content:space-around;
+margin-top:60px;
+text-align:center
+}
+
+.stats span{
+display:block;
+font-size:40px;
+color:#00e5ff
+}
+
+/* CARDS */
+.content{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+margin-top:60px
+}
+
+.card{
+border-radius:20px;
+overflow:hidden;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+transition:0.4s;
+position:relative;
+}
+
+.card:hover{
+transform:translateY(-15px) scale(1.05)
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+transition:0.5s
+}
+
+.card:hover img{
+transform:scale(1.15)
+}
+
+/* overlay text */
+.card .info{
+position:absolute;
+bottom:0;width:100%;
+background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);
+padding:20px;
+text-align:center;
+}
+
+/* CTA */
+.cta{
+text-align:center;
+background:linear-gradient(45deg,#00e5ff,#00bcd4);
+padding:60px;
+border-radius:20px;
+margin-top:80px
+}
+
+.cta button{
+padding:15px 30px;
+border:none;
+border-radius:30px;
+background:white;
+color:#00bcd4;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s
+}
+
+.cta button:hover{
+transform:scale(1.1)
+}
+
+footer{
+text-align:center;
+padding:30px;
+background:#020617;
+margin-top:50px
+}
+</style>
+</head>
+
+<body>
+
+<div class="cursor"></div>
+
+<header>
+<h1>🌏 Du lịch Việt Nam</h1>
+<nav>
+<a href="#">Trang chủ</a>
+<a href="#">Điểm đến</a>
+<a href="#">Ẩm thực</a>
+<a href="#">Thư viện</a>
+<a href="#">Liên hệ</a>
+</nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+<video autoplay muted loop>
+<source src="https://cdn.coverr.co/videos/coverr-aerial-view-of-a-beach-1561/1080p.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="hero-text">
+<h2>Khám phá Việt Nam</h2>
+<p>Thiên nhiên • Văn hóa • Ẩm thực</p>
+</div>
+
+<div class="scroll-down">↓ Scroll</div>
+</div>
+
+<!-- INTRO -->
+<section>
+<div class="container">
+
+<div class="intro">
+<h2>Việt Nam – Vẻ đẹp bất tận</h2>
+<p>
+Việt Nam là điểm đến hội tụ thiên nhiên hùng vĩ, văn hóa lâu đời và nền ẩm thực phong phú.
+Từ núi rừng phía Bắc đến biển đảo phía Nam, mỗi nơi đều mang một dấu ấn riêng biệt.
+</p>
+</div>
+
+<div class="stats">
+<div><span>63</span>Tỉnh thành</div>
+<div><span>3000+</span>Km bờ biển</div>
+<div><span>100+</span>Điểm du lịch</div>
+</div>
+
+<div class="content">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1528127269322-539801943592">
+<div class="info">
+<h3>Văn hóa</h3>
+<p>Nét đẹp truyền thống & hiện đại</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+<div class="info">
+<h3>Thiên nhiên</h3>
+<p>Biển xanh – núi non – rừng nguyên sinh</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b">
+<div class="info">
+<h3>Ẩm thực</h3>
+<p>Top thế giới</p>
+</div>
+</div>
+
+</div>
+
+<div class="cta">
+<h2>Bắt đầu hành trình của bạn</h2>
+<br>
+<button>Khám phá ngay</button>
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>© 2026 Du lịch Việt Nam</p>
+</footer>
+
+<script>
+// CURSOR
+const cursor=document.querySelector('.cursor');
+document.addEventListener('mousemove',e=>{
+cursor.style.top=e.clientY+'px';
+cursor.style.left=e.clientX+'px';
+});
+
+// SCROLL ANIMATION
+const cards=document.querySelectorAll('.card');
+cards.forEach(c=>{
+c.style.opacity=0;
+c.style.transform='translateY(60px)';
+});
+
+window.addEventListener('scroll',()=>{
+cards.forEach(card=>{
+if(card.getBoundingClientRect().top<window.innerHeight-50){
+card.style.opacity=1;
+card.style.transform='translateY(0)';
+}
+});
+});
+</script>
+
+</body>
+</html>@keyframes fadeUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
 
 section{padding:100px 40px}
 .container{max-width:1200px;margin:auto}
