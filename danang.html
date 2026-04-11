@@ -2,18 +2,157 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Đà Nẵng</title>
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đà Nẵng Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#020617;color:white;overflow-x:hidden;cursor:none}
+
+/* CURSOR */
+.cursor{width:20px;height:20px;border:2px solid #00e5ff;border-radius:50%;position:fixed;pointer-events:none;z-index:9999}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;padding:20px 60px;background:rgba(0,0,0,0.4);backdrop-filter:blur(12px);z-index:1000}
+nav a{color:white;text-decoration:none;margin:0 15px;position:relative}
+nav a::after{content:"";position:absolute;width:0;height:2px;background:#00e5ff;left:0;bottom:-5px;transition:0.3s}
+nav a:hover::after{width:100%}
+
+/* HERO */
+.hero{height:100vh;position:relative}
+.hero video{position:absolute;width:100%;height:100%;object-fit:cover}
+.hero .overlay{position:absolute;inset:0;background:rgba(0,0,0,0.55)}
+.hero .content{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
+.hero h1{font-size:80px;animation:fadeUp 1.2s}
+.hero p{opacity:0.85}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
+
+section{padding:100px 50px}
+.container{max-width:1200px;margin:auto}
+
+/* ABOUT */
+.about{display:flex;gap:50px;align-items:center}
+.about img{width:50%;border-radius:20px;transition:0.5s}
+.about img:hover{transform:scale(1.05)}
+
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
+.card{background:rgba(255,255,255,0.05);border-radius:20px;overflow:hidden;transition:0.4s;backdrop-filter:blur(10px)}
+.card:hover{transform:translateY(-15px) scale(1.05)}
+.card img{width:100%;height:200px;object-fit:cover;transition:0.5s}
+.card:hover img{transform:scale(1.1)}
+.card h3{padding:15px}
+.card p{padding:0 15px 20px;opacity:0.8}
+
+/* FOOD */
+.food{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.food div{background:rgba(255,255,255,0.05);padding:20px;border-radius:15px;text-align:center;transition:0.3s}
+.food div:hover{transform:scale(1.05)}
+
+/* CTA */
+.cta{text-align:center;background:linear-gradient(45deg,#00e5ff,#00bcd4);padding:60px;border-radius:20px}
+.cta button{padding:15px 30px;border:none;border-radius:30px;background:white;color:#00bcd4;font-weight:bold;cursor:pointer}
+
+/* MAP */
+.map iframe{width:100%;height:400px;border:none;border-radius:20px}
+
+footer{text-align:center;padding:20px;background:#020617;margin-top:50px}
+</style>
 </head>
 
 <body>
+<div class="cursor"></div>
 
-<header><h1>Đà Nẵng</h1></header>
+<nav>
+<h2>ĐÀ NẴNG</h2>
+<div>
+<a href="#about">Giới thiệu</a>
+<a href="#places">Địa điểm</a>
+<a href="#food">Ẩm thực</a>
+<a href="#map">Bản đồ</a>
+</div>
+</nav>
 
-<section class="detail">
-<img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1000&q=60">
-<p>Đà Nẵng – thành phố biển hiện đại, có cầu Rồng nổi tiếng.</p>
+<div class="hero">
+<video autoplay muted loop>
+<source src="https://cdn.coverr.co/videos/coverr-beach-sunrise-1563/1080p.mp4" type="video/mp4">
+</video>
+<div class="overlay"></div>
+<div class="content">
+<h1>Đà Nẵng</h1>
+<p>Thành phố biển đáng sống nhất Việt Nam</p>
+</div>
+</div>
+
+<section id="about">
+<div class="container about">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+<div>
+<h2>Giới thiệu</h2>
+<p>Đà Nẵng nổi bật với bãi biển đẹp, nhịp sống hiện đại và con người thân thiện. Đây là điểm đến du lịch hàng đầu tại Việt Nam.</p>
+</div>
+</div>
 </section>
+
+<section id="places">
+<div class="container">
+<h2 style="text-align:center;margin-bottom:40px">Địa điểm nổi bật</h2>
+<div class="cards">
+<div class="card"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"><h3>Mỹ Khê</h3><p>Bãi biển top thế giới</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482"><h3>Cầu Rồng</h3><p>Biểu tượng thành phố</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470"><h3>Bà Nà Hills</h3><p>Cầu Vàng nổi tiếng</p></div>
+</div>
+</div>
+</section>
+
+<section id="food">
+<div class="container">
+<h2 style="text-align:center;margin-bottom:40px">Ẩm thực Đà Nẵng</h2>
+<div class="food">
+<div>🍜 Mì Quảng</div>
+<div>🐟 Bún chả cá</div>
+<div>🥖 Bánh mì</div>
+<div>🍢 Nem lụi</div>
+</div>
+</div>
+</section>
+
+<section id="map">
+<div class="container">
+<h2 style="text-align:center;margin-bottom:40px">Bản đồ</h2>
+<div class="map">
+<iframe src="https://maps.google.com/maps?q=Da%20Nang&t=&z=11&ie=UTF8&iwloc=&output=embed"></iframe>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="cta">
+<h2>Khám phá ngay</h2>
+<button>Start</button>
+</div>
+</div>
+</section>
+
+<footer>
+<p>© 2026 Đà Nẵng Premium</p>
+</footer>
+
+<script>
+const cursor=document.querySelector('.cursor');
+document.addEventListener('mousemove',e=>{cursor.style.top=e.clientY+'px';cursor.style.left=e.clientX+'px'});
+
+const cards=document.querySelectorAll('.card');
+cards.forEach(c=>{c.style.opacity=0;c.style.transform='translateY(60px)'});
+window.addEventListener('scroll',()=>{
+cards.forEach(card=>{
+if(card.getBoundingClientRect().top<window.innerHeight-50){card.style.opacity=1;card.style.transform='translateY(0)'}
+});
+});
+</script>
 
 </body>
 </html>
