@@ -2,18 +2,149 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Hà Nội</title>
-<link rel="stylesheet" href="style.css">
-</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hà Nội Ultra</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#020617;color:white;overflow-x:hidden;cursor:none}
+
+/* CUSTOM CURSOR */
+.cursor{
+width:20px;height:20px;border:2px solid #00e5ff;border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transition:0.1s
+}
+
+/* NAV */
+nav{
+position:fixed;top:0;width:100%;
+display:flex;justify-content:space-between;
+padding:20px 60px;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(12px);
+z-index:1000
+}
+nav a{color:white;text-decoration:none;margin:0 15px}
+
+/* HERO VIDEO */
+.hero{
+height:100vh;position:relative;overflow:hidden
+}
+.hero video{
+position:absolute;width:100%;height:100%;object-fit:cover
+}
+.hero .content{
+position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+text-align:center
+}
+.hero h1{font-size:80px;animation:fadeUp 1.5s}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(50px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+section{padding:100px 60px}
+.container{max-width:1200px;margin:auto}
+
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
+.card{
+background:rgba(255,255,255,0.05);
+border-radius:20px;
+transition:0.4s;
+backdrop-filter:blur(10px)
+}
+.card:hover{transform:translateY(-15px) scale(1.05)}
+.card img{width:100%;height:200px;object-fit:cover}
+.card h3{padding:15px}
+.card p{padding:0 15px 20px;opacity:0.8}
+
+/* MAP FAKE */
+.map{
+height:400px;background:url('https://images.unsplash.com/photo-1502920917128-1aa500764b83') center/cover;border-radius:20px;display:flex;align-items:center;justify-content:center
+}
+
+/* CTA */
+.cta{text-align:center;background:linear-gradient(45deg,#00e5ff,#00bcd4);padding:60px;border-radius:20px}
+.cta button{padding:15px 30px;border:none;border-radius:30px;background:white;color:#00bcd4;font-weight:bold;cursor:pointer}
+
+footer{text-align:center;padding:20px;background:#020617;margin-top:50px}
+
+</style>
+</head>
 <body>
 
-<header><h1>Hà Nội</h1></header>
+<div class="cursor"></div>
 
-<section class="detail">
-<img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1000&q=60" alt="Hà Nội">
-<p>Hà Nội – thủ đô nghìn năm văn hiến, nổi tiếng với Hồ Gươm và phố cổ.</p>
+<nav>
+<h2>HÀ NỘI ULTRA</h2>
+<div>
+<a href="#places">Địa điểm</a>
+<a href="#map">Bản đồ</a>
+</div>
+</nav>
+
+<div class="hero">
+<video autoplay muted loop>
+<source src="https://cdn.coverr.co/videos/coverr-hanoi-street-traffic-5170/1080p.mp4" type="video/mp4">
+</video>
+<div class="content">
+<h1>Hà Nội</h1>
+<p>Trải nghiệm đỉnh cao</p>
+</div>
+</div>
+
+<section id="places">
+<div class="container">
+<h2 style="text-align:center;margin-bottom:50px">Địa điểm nổi bật</h2>
+<div class="cards">
+<div class="card"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb"><h3>Hồ Gươm</h3><p>Biểu tượng Hà Nội</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1526481280691-3f3b9c3c8c31"><h3>Phố cổ</h3><p>Nét cổ kính</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b"><h3>Lăng Bác</h3><p>Lịch sử thiêng liêng</p></div>
+</div>
+</div>
 </section>
+
+<section id="map">
+<div class="container">
+<h2 style="text-align:center;margin-bottom:40px">Bản đồ khám phá</h2>
+<div class="map"><h2>Map Demo</h2></div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="cta">
+<h2>Khám phá Hà Nội ngay</h2>
+<button>Start</button>
+</div>
+</div>
+</section>
+
+<footer>
+<p>© 2026 Hà Nội Ultra</p>
+</footer>
+
+<script>
+// CURSOR
+const cursor = document.querySelector('.cursor');
+document.addEventListener('mousemove',e=>{
+cursor.style.top = e.clientY+'px';
+cursor.style.left = e.clientX+'px';
+});
+
+// SCROLL ANIMATION
+const cards = document.querySelectorAll('.card');
+cards.forEach(c=>{c.style.opacity=0;c.style.transform='translateY(60px)';});
+window.addEventListener('scroll',()=>{
+cards.forEach(card=>{
+if(card.getBoundingClientRect().top < window.innerHeight-50){
+card.style.opacity=1;card.style.transform='translateY(0)';
+}
+});
+});
+</script>
 
 </body>
 </html>
