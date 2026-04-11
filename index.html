@@ -4,48 +4,143 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Du lịch Việt Nam</title>
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#020617;color:white;overflow-x:hidden;cursor:none}
+
+/* CURSOR */
+.cursor{width:20px;height:20px;border:2px solid #00e5ff;border-radius:50%;position:fixed;pointer-events:none;z-index:9999}
+
+/* NAV */
+header{
+position:fixed;top:0;width:100%;
+display:flex;justify-content:space-between;align-items:center;
+padding:20px 60px;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(12px);
+z-index:1000
+}
+nav a{color:white;text-decoration:none;margin:0 15px;position:relative}
+nav a::after{content:"";position:absolute;width:0;height:2px;background:#00e5ff;left:0;bottom:-5px;transition:0.3s}
+nav a:hover::after{width:100%}
+
+/* HERO VIDEO */
+.hero{height:100vh;position:relative}
+.hero video{position:absolute;width:100%;height:100%;object-fit:cover}
+.hero .overlay{position:absolute;inset:0;background:rgba(0,0,0,0.6)}
+.hero .content{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
+.hero h2{font-size:80px;animation:fadeUp 1.2s}
+.hero p{font-size:22px;opacity:0.85}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
+
+section{padding:100px 40px}
+.container{max-width:1200px;margin:auto}
+
+/* INTRO */
+.intro{text-align:center;max-width:900px;margin:auto;line-height:1.8;font-size:18px;opacity:0.9}
+
+/* STATS */
+.stats{display:flex;justify-content:space-around;margin-top:60px;text-align:center}
+.stats div{font-size:22px}
+.stats span{display:block;font-size:40px;color:#00e5ff}
+
+/* CARDS */
+.content{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;margin-top:60px}
+.card{border-radius:20px;overflow:hidden;text-decoration:none;color:white;background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);transition:0.4s}
+.card:hover{transform:translateY(-15px) scale(1.05)}
+.card img{width:100%;height:200px;object-fit:cover;transition:0.5s}
+.card:hover img{transform:scale(1.1)}
+.card h3{text-align:center;padding:15px}
+
+/* CTA */
+.cta{text-align:center;background:linear-gradient(45deg,#00e5ff,#00bcd4);padding:60px;border-radius:20px;margin-top:80px}
+.cta button{padding:15px 30px;border:none;border-radius:30px;background:white;color:#00bcd4;font-weight:bold;cursor:pointer}
+
+footer{text-align:center;padding:30px;background:#020617;margin-top:50px}
+</style>
 </head>
 
 <body>
+<div class="cursor"></div>
 
 <header>
-  <h1>🌏 Du lịch Việt Nam</h1>
-  <nav>
-    <a href="index.html">Trang chủ</a>
-    <a href="destinations.html">Điểm đến</a>
-    <a href="food.html">Ẩm thực</a>
-    <a href="gallery.html">Thư viện</a>
-    <a href="contact.html">Liên hệ</a>
-  </nav>
+<h1>🌏 Du lịch Việt Nam</h1>
+<nav>
+<a href="index.html">Trang chủ</a>
+<a href="destinations.html">Điểm đến</a>
+<a href="food.html">Ẩm thực</a>
+<a href="gallery.html">Thư viện</a>
+<a href="contact.html">Liên hệ</a>
+</nav>
 </header>
 
-<section class="hero">
-  <div class="hero-text">
-    <h2>Khám phá Việt Nam</h2>
-    <p>Thiên nhiên • Văn hóa • Ẩm thực</p>
-  </div>
+<div class="hero">
+<video autoplay muted loop>
+<source src="https://cdn.coverr.co/videos/coverr-aerial-view-of-a-beach-1561/1080p.mp4" type="video/mp4">
+</video>
+<div class="overlay"></div>
+<div class="content">
+<h2>Khám phá Việt Nam</h2>
+<p>Thiên nhiên • Văn hóa • Ẩm thực</p>
+</div>
+</div>
+
+<section>
+<div class="container">
+<div class="intro">
+<h2>Việt Nam – Vẻ đẹp bất tận</h2>
+<p>
+Việt Nam là điểm đến hội tụ vẻ đẹp thiên nhiên hùng vĩ, văn hóa lâu đời và nền ẩm thực phong phú.
+Từ núi rừng phía Bắc đến biển đảo phía Nam, mỗi nơi đều mang một nét đẹp riêng biệt.
+</p>
+</div>
+
+<div class="stats">
+<div><span>63</span>Tỉnh thành</div>
+<div><span>3000+</span>Km bờ biển</div>
+<div><span>100+</span>Điểm du lịch</div>
+</div>
+
+<div class="content">
+<a class="card" href="hanoi.html"><img src="https://images.unsplash.com/photo-1528127269322-539801943592"><h3>Hà Nội</h3></a>
+<a class="card" href="danang.html"><img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482"><h3>Đà Nẵng</h3></a>
+<a class="card" href="phuquoc.html"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"><h3>Phú Quốc</h3></a>
+</div>
+
+<div class="cta">
+<h2>Bắt đầu hành trình của bạn</h2>
+<br>
+<button>Khám phá ngay</button>
+</div>
+
+</div>
 </section>
 
-<section class="content">
+<footer>
+<p>© 2026 Du lịch Việt Nam</p>
+</footer>
 
-<a class="card" href="hanoi.html">
-  <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=60">
-  <h3>Hà Nội</h3>
-</a>
+<script>
+// CURSOR
+const cursor=document.querySelector('.cursor');
+document.addEventListener('mousemove',e=>{
+cursor.style.top=e.clientY+'px';cursor.style.left=e.clientX+'px';
+});
 
-<a class="card" href="danang.html">
-  <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=800&q=60">
-  <h3>Đà Nẵng</h3>
-</a>
+// SCROLL ANIMATION
+const cards=document.querySelectorAll('.card');
+cards.forEach(c=>{c.style.opacity=0;c.style.transform='translateY(60px)'});
+window.addEventListener('scroll',()=>{
+cards.forEach(card=>{
+if(card.getBoundingClientRect().top<window.innerHeight-50){
+card.style.opacity=1;card.style.transform='translateY(0)'
+}
+});
+});
+</script>
 
-<a class="card" href="phuquoc.html">
-  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60">
-  <h3>Phú Quốc</h3>
-</a>
-
-</section>
-
-<script src="script.js"></script>
 </body>
 </html>
