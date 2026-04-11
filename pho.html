@@ -2,18 +2,198 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Phở</title>
-<link rel="stylesheet" href="style.css">
-</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phở Việt Nam</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#0f172a;color:#fff;overflow-x:hidden}
+
+/* NAV */
+nav{
+position:fixed;
+top:0;width:100%;
+display:flex;justify-content:space-between;
+padding:20px 50px;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+z-index:1000
+}
+nav a{color:white;text-decoration:none;margin:0 15px;position:relative}
+nav a::after{
+content:"";position:absolute;width:0;height:2px;background:#ff9800;left:0;bottom:-5px;transition:0.3s
+}
+nav a:hover::after{width:100%}
+
+/* HERO */
+.hero{
+height:100vh;
+background:url('https://images.unsplash.com/photo-1583225377497-9c2c7d1bde86') center/cover;
+display:flex;align-items:center;justify-content:center;text-align:center
+}
+.hero h1{
+font-size:70px;
+animation:fadeUp 1.5s ease
+}
+.hero p{margin-top:15px;font-size:20px;opacity:0.8}
+
+/* ANIMATION */
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(50px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+/* SECTION */
+section{padding:100px 50px}
+.container{max-width:1200px;margin:auto}
+
+/* ABOUT */
+.about{display:flex;gap:50px;align-items:center}
+.about img{width:50%;border-radius:20px;transition:0.5s}
+.about img:hover{transform:scale(1.05)}
+
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
+.card{
+background:rgba(255,255,255,0.05);
+border-radius:20px;
+overflow:hidden;
+transition:0.4s;
+backdrop-filter:blur(10px)
+}
+.card:hover{transform:translateY(-15px) scale(1.03)}
+.card img{width:100%;height:200px;object-fit:cover}
+.card h3{padding:15px}
+.card p{padding:0 15px 20px;opacity:0.8}
+
+/* PARALLAX */
+.parallax{
+height:400px;
+background:url('https://images.unsplash.com/photo-1604909052743-94e838986d24') center/cover fixed;
+display:flex;align-items:center;justify-content:center
+}
+.parallax h2{font-size:40px;background:rgba(0,0,0,0.5);padding:20px;border-radius:10px}
+
+/* CTA */
+.cta{
+text-align:center;
+background:linear-gradient(45deg,#ff9800,#ff5722);
+padding:60px;border-radius:20px
+}
+.cta button{
+padding:15px 30px;border:none;border-radius:30px;
+background:white;color:#ff5722;font-weight:bold;
+cursor:pointer;transition:0.3s
+}
+.cta button:hover{transform:scale(1.1)}
+
+/* FOOTER */
+footer{text-align:center;padding:20px;background:#020617;margin-top:50px}
+
+</style>
+</head>
 <body>
 
-<header><h1>Phở Việt Nam</h1></header>
+<nav>
+<h2>PHỞ VN</h2>
+<div>
+<a href="#about">Giới thiệu</a>
+<a href="#menu">Các loại phở</a>
+<a href="#contact">Liên hệ</a>
+</div>
+</nav>
 
-<section class="detail">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Ph%E1%BB%9F_b%C3%B2.jpg" alt="Phở Việt Nam">
-<p>Phở – món ăn truyền thống nổi tiếng của Việt Nam.</p>
+<div class="hero">
+<div>
+<h1>Phở Việt Nam</h1>
+<p>Tinh hoa ẩm thực truyền thống</p>
+</div>
+</div>
+
+<section id="about">
+<div class="container about">
+<img src="https://images.unsplash.com/photo-1583225377497-9c2c7d1bde86">
+<div>
+<h2>Giới thiệu</h2>
+<p>Phở là món ăn biểu tượng của Việt Nam với nước dùng thanh ngọt, bánh phở mềm và hương thơm đặc trưng từ các loại gia vị truyền thống.</p>
+</div>
+</div>
 </section>
+
+<section id="menu">
+<div class="container">
+<h2 style="text-align:center;margin-bottom:50px">Các loại phở phổ biến</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
+<h3>Phở bò</h3>
+<p>Đậm đà với thịt bò và nước dùng ninh xương.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1589308078054-8327c9e55d84">
+<h3>Phở gà</h3>
+<p>Thanh nhẹ, dễ ăn, phù hợp mọi lứa tuổi.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+<h3>Phở xào</h3>
+<p>Biến tấu hiện đại với sợi phở xào thơm ngon.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<div class="parallax">
+<h2>Hương vị lan tỏa toàn cầu</h2>
+</div>
+
+<section>
+<div class="container">
+<div class="cta">
+<h2>Thưởng thức phở ngay hôm nay</h2>
+<p>Trải nghiệm món ăn nổi tiếng thế giới</p>
+<br>
+<button>Đặt ngay</button>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container" style="text-align:center">
+<h2>Liên hệ</h2>
+<p>Email: pho@email.com | Hotline: 0123 456 789</p>
+</div>
+</section>
+
+<footer>
+<p>© 2026 Phở Việt Nam</p>
+</footer>
+
+<script>
+// SCROLL ANIMATION
+const cards = document.querySelectorAll('.card');
+window.addEventListener('scroll',()=>{
+cards.forEach(card=>{
+const top = card.getBoundingClientRect().top;
+if(top < window.innerHeight - 50){
+card.style.opacity=1;
+card.style.transform='translateY(0)';
+}
+})
+})
+
+cards.forEach(c=>{
+c.style.opacity=0;
+c.style.transform='translateY(50px)';
+c.style.transition='0.6s';
+})
+</script>
 
 </body>
 </html>
